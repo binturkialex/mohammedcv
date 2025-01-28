@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Isskander Saeed Thabit - MEAL Officer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="data.js"></script>
+    <style>
+        /* تحديث نظام الألوان ليكون أكثر احترافية */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --success-color: #2ecc71;
+            --text-color: #2d3748;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+        }
+
+        /* تحسين تأثيرات الظهور */
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* تحسين الهيدر */
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 3rem;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info span {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info span:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+        }
+
+        /* إضافة تأثيرات للأقسام */
+        section {
+            position: relative;
+            background: white;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 0 auto 2rem;
+            max-width: 1000px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover::before {
+            transform: scaleY(1);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent-color);
+        }
+
+        .experience h2::before { content: "\f0b1"; }
+        .education h2::before { content: "\f19d"; }
+        .skills h2::before { content: "\f085"; }
+        .languages h2::before { content: "\f1ab"; }
+
+        /* تحسين عرض الخبرات */
+        .experience-item {
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid transparent;
+            background: linear-gradient(to right, var(--light-gray), white);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            border-left-color: var(--accent-color);
+            transform: translateX(10px);
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .experience-item h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .experience-item p {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style-type: none;
+        }
+
+        .experience-item ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-item ul li::before {
+            content: "►";
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* تحسين عرض المهارات */
+        .skills-grid div {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .skills-grid div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-grid div::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(66, 153, 225, 0.1));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .skills-grid div:hover::before {
+            transform: translateX(0);
+        }
+
+        .skills-grid div h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* إضافة شريط تقدم دائري للمهارات */
+        .skill-progress {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 1rem 0;
+        }
+
+        .skill-progress svg {
+            transform: rotate(-90deg);
+        }
+
+        .skill-progress circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke: var(--border-color);
+        }
+
+        .skill-progress circle.progress {
+            stroke: var(--accent-color);
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: var(--progress);
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        /* تحسين زر الطباعة */
+        .print-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+        }
+
+        @media print {
+            /* تحسينات عامة للطباعة */
+            body {
+                background: white;
+                font-size: 11pt;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* تحسين الهيدر */
+            header {
+                background: none !important;
+                padding: 1rem !important;
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                color: black !important;
+                font-size: 24pt;
+                text-align: center;
+                width: 100%;
+            }
+
+            h1::after {
+                background: black !important;
+                width: 30%;
+            }
+
+            .contact-info {
+                margin-top: 1rem;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .contact-info span {
+                background: none;
+                color: var(--text-color) !important;
+                padding: 0.2rem 0.5rem;
+                font-size: 10pt;
+            }
+
+            .contact-info i {
+                color: black !important;
+            }
+
+            /* تحسين الأقسام */
+            section {
+                margin: 0.5rem 0;
+                padding: 1rem;
+                box-shadow: none;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: none;
+                background: none;
+            }
+
+            /* تحسين عناصر الخبرة */
+            .experience-item {
+                padding: 0.8rem;
+                margin-bottom: 0.8rem;
+                box-shadow: none;
+                border: none;
+                border-left: 2px solid var(--accent-color);
+            }
+
+            .experience-item h3 {
+                font-size: 12pt;
+                margin-bottom: 0.2rem;
+            }
+
+            .experience-item p {
+                margin: 0.2rem 0;
+            }
+
+            .experience-item ul {
+                margin: 0.5rem 0;
+            }
+
+            .experience-item ul li {
+                margin-bottom: 0.3rem;
+                font-size: 10pt;
+            }
+
+            /* تحسين شبكة المهارات */
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .skills-grid div {
+                padding: 0.8rem;
+                box-shadow: none;
+                border: none;
+            }
+
+            /* إخفاء العناصر غير الضرورية */
+            .print-button,
+            .scroll-indicator,
+            section::before,
+            .experience-item::before,
+            .skills-grid div::before {
+                display: none !important;
+            }
+
+            /* تحسين الهوامش والمسافات */
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+
+            /* تحسين المسافات بين العناصر */
+            h1, h2, h3 {
+                margin: 0.5rem 0;
+            }
+
+            p {
+                margin: 0.3rem 0;
+            }
+
+            /* تحسين عرض اللغات */
+            .language-level {
+                margin-top: 0.2rem;
+            }
+
+            .progress-bar {
+                height: 4px;
+            }
+
+            /* تحسين الألوان للطباعة */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* تحسين التباين للطباعة بالأبيض والأسود */
+            .experience-item,
+            .skills-grid div {
+                background-color: transparent !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* تحسين التأثيرات الحركية */
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* إضافة شريط تقدم للمهارات اللغوية */
+        .language-level {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        /* إضافة تأثيرات التمرير */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent-color);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* إضافة نمط لكلمة CV */
+        .cv-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 3px;
+            font-weight: 700;
+            padding: 5px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            z-index: 3;
+        }
+
+        /* تنسيق السهم الانسيابي */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .scroll-arrow i {
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* إخفاء المحتوى الرئيسي مبدئياً */
+        .main-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+            display: none;
+        }
+
+        .main-content.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        /* تعديل الهيدر */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        /* تحسينات الطباعة */
+        @media print {
+            .cv-title {
+                color: black !important;
+                border-color: black !important;
+            }
+
+            .scroll-arrow {
+                display: none !important;
+            }
+
+            .main-content {
+                display: block !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* تنسيق الصورة الشخصية */
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, var(--accent-color), var(--success-color));
+            position: relative;
+            animation: profileFadeIn 1s ease forwards;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent-color), var(--success-color));
+            opacity: 0.5;
+            filter: blur(8px);
+            transform: scale(0.95);
+            z-index: -1;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+
+        @keyframes profileFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                transform: scale(0.95);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        /* تعديل تنسيق الطباعة للصورة */
+        @media print {
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                margin: 1rem auto;
+                padding: 3px;
+                background: none;
+            }
+
+            .profile-image::before {
+                display: none;
+            }
+
+            .profile-image img {
+                border: 2px solid var(--text-color);
+            }
+        }
+
+        /* تحسين تأثير العمق للماسات */
+        .diamond-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .diamond {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            transform: rotate(45deg) translateZ(0);
+            background: rgba(255, 255, 255, 0.05);
+            animation: floatDiamond 15s linear infinite;
+            backdrop-filter: blur(2px);
+            transition: transform 0.3s ease-out;
+            will-change: transform;
+        }
+
+        .diamond::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: inherit;
+            filter: blur(8px);
+            opacity: 0.7;
+            transition: all 0.3s ease-out;
+        }
+
+        /* إضافة تأثير الظل للعمق */
+        .diamond::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, 
+                rgba(255,255,255,0.1), 
+                rgba(255,255,255,0.2));
+            transition: all 0.3s ease-out;
+        }
+
+        @keyframes floatDiamond {
+            0% {
+                transform: rotate(45deg) translate(-100px, -100%);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.5;
+            }
+            80% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: rotate(45deg) translate(100px, 100%);
+                opacity: 0;
+            }
+        }
+
+        /* تنسيق الفوتر */
+        .cv-footer {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            margin-top: 4rem;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-content p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-content a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            border-bottom-style: solid;
+            border-bottom-color: #fff;
+        }
+
+        /* تحسين الطباعة */
+        @media print {
+            .cv-footer {
+                background: none;
+                border-top: 1px solid var(--text-color);
+                box-shadow: none;
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                color: var(--text-color);
+            }
+
+            .footer-content a {
+                color: var(--text-color);
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="cv-title">CV</div>
+        <div class="header-content">
+            <div class="profile-image">
+                <img src="picture.jpg" alt="Mohammed Isskander">
+            </div>
+            <h1>Mohammed Isskander Saeed Thabit</h1>
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i>Yemen - Aden - Khormakser - Alsa'ada neighborhood</span>
+                <span><i class="fas fa-envelope"></i> mohammed.isskander@gmail.com</span>
+                <span><i class="fas fa-phone"></i> +967 772772023</span>
+                <span><i class="fas fa-calendar"></i> DOB: 27/05/1990</span>
+            </div>
+        </div>
+        <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <section class="professional-summary">
+            <h2>Professional Summary</h2>
+            <p>Experienced MEAL Officer with strong skills in data analysis, database management, and geographic information systems. Proven track record in integrating beneficiary inputs into systems like DHIS2, developing MEAL matrices and plans, conducting surveys and evaluations, and preparing comprehensive M&E reports. My expertise includes overseeing budget lines, log frames, and beneficiary registration processes. I am skilled in providing technical guidance, training program staff, and fostering strong relationships with humanitarian partners, contributing to a participatory and collaborative MEAL approach in Yemen. I am passionate about contributing to UN agencies and INGOs, serving my country, and working alongside high-profile personnel.</p>
+        </section>
+
+        <section class="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <h3>M&E Officer | International Rescue Committee (IRC)</h3>
+                <p>November 2024 - Present</p>
+                <ul>
+                    <li>Collecting, analyzing, and reporting M&E data.</li>
+                    <li>Conducting regular surveys and evaluations to support programs.</li>
+                    <li>Providing training and technical guidance on data documentation and management.</li>                                        
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>M&E Officer | RGH</h3>
+                <p>March 2024 - October 2024</p>
+                <ul>
+                    <li>Reviewing data collection forms to ensure they match the project description.</li>
+                    <li>Reviewing questionnaires after uploading them to the data collection platform.</li>
+                    <li>Conducting a capacity-building workshop for the data collection team.</li>
+                    <li>Managing the field team and providing direct supervision of daily field data collection activities.</li>
+                    <li>Conducting data analysis and preparing the final survey report.</li>
+                    <li>Incorporating comments submitted on the report leading to the delivery of the final report.</li>                    
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>M&E Officer | Norwegian Refugee Council (NRC)</h3>
+                <p>September 2022 - February 2024</p>
+                <ul>
+                    <li>Managing databases and tracking project implementation.</li>
+                    <li>Preparing monthly performance reports and analyzing data.</li>
+                    <li>Collaborating with program teams to ensure accurate data collection and reporting.</li>                    
+                </ul>
+            </div>
+
+
+            <div class="experience-item">
+                <h3>Acting MEAL Coordinator | Norwegian Refugee Council (NRC)</h3>
+                <p>June 2022 - September 2022</p>
+                <ul>
+                    <li>Established and managed complaints and feedback management (CFM) system</li>
+                    <li>Led MEAL team achievements meetings and program review presentations</li>
+                    <li>Managed budget allocation for MEAL activities</li>
+                    <li>Coordinated with multiple stakeholders including UNHCR and OCHA</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>MEAL Officer | Norwegian Refugee Council (NRC)</h3>
+                    <p>October 2021 - June 2022</p>
+                </div>
+                <div class="experience-content">
+                    <ul class="responsibilities-list">
+                        <li>Developing and monitoring evaluation tools and field data collection.</li>
+                        <li>Preparing analytical reports to support decision-making.</li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item">
+                <h3>MEAL Assistant | Norwegian Refugee Council (NRC)</h3>
+                <p>October 2018 - October 2021</p>
+                <ul>
+                    <li>Progressively advanced through MEAL roles with increasing responsibilities</li>
+                    <li>Developed and implemented monitoring processes and systems</li>
+                    <li>Managed data collection, analysis, and reporting activities</li>
+                    <li>Provided technical support across multiple program teams</li>
+                    <li>Implemented Complaint, Response, and Feedback Mechanisms</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Assistant MEAL Officer | Norwegian Refugee Council (NRC)</h3>
+                <p>July 2017 - August 2017</p>
+                <ul>
+                    <li>Conducting market assessments and monitoring field distributions.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>MEAL Officer | SYUAID</h3>
+                <p>January 2017 - June 2017</p>
+                <ul>
+                    <li>Managing M&E databases, analyzing data, and preparing reports.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>International Committee of the Red Cross (ICRC)</h3>
+                <p>January 2015 - December 2016</p>
+                <ul>
+                    <li>Served in multiple capacities including Data Entry Specialist, Field Monitor, and EcoSec Field Officer</li>
+                    <li>Managed Cash for Work programs in multiple phases</li>
+                    <li>Conducted market assessments and post-distribution monitoring</li>
+                    <li>Supported relief interventions and Micro Economic Initiatives (MEI)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Education & Certifications</h2>
+            <div class="experience-item">
+                <h3>Bachelor's Degree in Architecture</h3>
+                <p>University of Aden | 2009 - 2014</p>
+                <ul>
+                    <li>Specialized in architectural design and urban planning</li>
+
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Professional Certifications</h3>
+                <ul>
+                    <li>GIS Training Certificate (NRC & Esri)</li>
+                    <li>Microsoft Office Specialist (MOS) Certification</li>
+                    <li>Advanced Data Analysis and Visualization Training</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>MS Office Suite</li>
+                        <li>Power BI</li>
+                        <li>GIS</li>
+                        <li>Advanced Excel (Macros & Data Visualization)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Data Management & Analysis</h3>
+                    <ul>
+                        <li>Statistical Reporting</li>
+                        <li>Database Management</li>
+                        <li>Survey Analysis</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Project Management</h3>
+                    <ul>
+                        <li>MEAL Frameworks</li>
+                        <li>Stakeholder Engagement</li>
+                        <li>Compliance Management</li>
+                        <li>Team Leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="languages">
+            <h2>Languages</h2>
+            <div class="experience-item">
+                <div class="language-item">
+                    <span>Arabic</span>
+                    <div class="language-level">
+                        <span>Native</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="language-item">
+                    <span>English</span>
+                    <div class="language-level">
+                        <span>Proficient</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <button class="print-button" onclick="window.print()">
+            <i class="fas fa-print"></i> Print CV
+        </button>
+
+        <!-- إضافة شريط التمرير -->
+        <div class="scroll-indicator"></div>
+    </div>
+
+    <!-- إضافة الفوتر قبل نهاية الـ body -->
+    <footer class="cv-footer">
+        <div class="footer-content">
+            <p>This electronic CV was designed by Mohammed Bin Turki.</p>
+            <p>For contact: <a href="tel:+967772772023">+967 772 772 023</a></p>
+        </div>
+    </footer>
+
+    <!-- إضافة السكريبت -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollArrow = document.querySelector('.scroll-arrow');
+            const mainContent = document.querySelector('.main-content');
+            let isContentVisible = false;
+
+            // إضافة خلفية الماس
+            const header = document.querySelector('header');
+            const diamondBackground = document.createElement('div');
+            diamondBackground.className = 'diamond-background';
+            header.insertBefore(diamondBackground, header.firstChild);
+
+            // تحسين تفاعل الماوس مع الماسات
+            document.addEventListener('mousemove', function(e) {
+                const diamonds = document.querySelectorAll('.diamond');
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                const windowCenterX = window.innerWidth / 2;
+                const windowCenterY = window.innerHeight / 2;
+                
+                diamonds.forEach(diamond => {
+                    const rect = diamond.getBoundingClientRect();
+                    const diamondCenterX = rect.left + rect.width / 2;
+                    const diamondCenterY = rect.top + rect.height / 2;
+                    
+                    // حساب المسافة من الماوس
+                    const distanceX = mouseX - diamondCenterX;
+                    const distanceY = mouseY - diamondCenterY;
+                    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+                    
+                    // حساب قوة التأثير بناءً على المسافة
+                    const maxDistance = 400; // نطاق التأثير
+                    const influence = Math.max(0, 1 - distance / maxDistance);
+                    
+                    // حساب الزاوية والعمق
+                    const angleX = (mouseY - windowCenterY) * 0.1;
+                    const angleY = (mouseX - windowCenterX) * 0.1;
+                    const depth = influence * 100;
+                    
+                    // تطبيق التحويلات
+                    const transform = `
+                        rotate(45deg)
+                        translate3d(${distanceX * influence * 0.2}px, 
+                                   ${distanceY * influence * 0.2}px, 
+                                   ${depth}px)
+                        rotateX(${angleX * influence}deg)
+                        rotateY(${angleY * influence}deg)
+                    `;
+                    
+                    // تطبيق التأثيرات
+                    diamond.style.transform = transform;
+                    diamond.style.zIndex = Math.floor(depth);
+                    
+                    // تعديل الشفافية والتوهج
+                    const glow = 0.05 + (influence * 0.15);
+                    diamond.style.background = `rgba(255, 255, 255, ${glow})`;
+                    
+                    const afterGlow = influence * 1.2;
+                    const beforeGlow = influence * 0.8;
+                    diamond.style.setProperty('--after-opacity', afterGlow);
+                    diamond.style.setProperty('--before-opacity', beforeGlow);
+                });
+            });
+
+            // تحسين دالة إنشاء الماس
+            function createDiamond() {
+                const diamond = document.createElement('div');
+                diamond.className = 'diamond';
+                
+                // إضافة طبقات مختلفة للعمق
+                const depth = -50 + Math.random() * 100;
+                const size = 30 + Math.random() * 50;
+                
+                diamond.style.width = `${size}px`;
+                diamond.style.height = `${size}px`;
+                diamond.style.left = `${-50 + Math.random() * (window.innerWidth + 100)}px`;
+                diamond.style.top = `${-50 + Math.random() * (window.innerHeight + 100)}px`;
+                diamond.style.transform = `rotate(45deg) translateZ(${depth}px)`;
+                
+                const duration = 15 + Math.random() * 25;
+                const delay = Math.random() * 10;
+                diamond.style.animationDuration = `${duration}s`;
+                diamond.style.animationDelay = `${delay}s`;
+                
+                diamondBackground.appendChild(diamond);
+                
+                setTimeout(() => {
+                    diamond.remove();
+                }, (duration + delay) * 1000);
+            }
+
+            // زيادة عدد الماسات الأولية
+            for(let i = 0; i < 25; i++) {
+                createDiamond();
+            }
+
+            // إنشاء ماسات جديدة بشكل أسرع
+            setInterval(createDiamond, 800);
+            
+            // الكود الأصلي للتمرير
+            scrollArrow.addEventListener('click', function() {
+                if (!isContentVisible) {
+                    mainContent.style.display = 'block';
+                    setTimeout(() => {
+                        mainContent.classList.add('show');
+                    }, 50);
+                    window.scrollTo({
+                        top: window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                    isContentVisible = true;
+                } else {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    isContentVisible = false;
+                }
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > window.innerHeight / 2) {
+                    scrollArrow.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                } else {
+                    scrollArrow.innerHTML = '<i class="fas fa-chevron-down"></i>';
+                }
+            });
+
+            // تحديث السيرة الذاتية عند تحميل الصفحة
+            CVData.updateCV();
+        });
+    </script>
+</body>
+</html>
